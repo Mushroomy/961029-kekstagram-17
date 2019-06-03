@@ -1,11 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url]
 
 * Студент: [Неопознанный енот](https://up.htmlacademy.ru/javascript/17/user/961029).
-<<<<<<< HEAD
 * Наставник: [Сергей Рожков](https://up.htmlacademy.ru/javascript/17/user/1069033).
-=======
-* Наставник: Сергей Рожков.
->>>>>>> parent of fd6b4e1... Update Readme.md
 
 ---
 
