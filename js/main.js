@@ -14,12 +14,12 @@ function makeNumArray(min, max) {
 }
 
 function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
 }
 
 var photosArray = makeNumArray(1, 25);
@@ -36,10 +36,10 @@ var commentsList = [
   ];
 
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min ) ) + min;
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function createArray () {
+function createArray() {
   for (var i = 0; i < PICTURES_LENGTH; i++) {
     picturesList[i] = {
       url: 'photos/' + photosArray[i] + '.jpg',
@@ -55,9 +55,9 @@ createArray();
 var template = document.querySelector('#picture').content.querySelector('.picture');
 var createPictures = function (picture) {
   var pictureElement = template.cloneNode(true);
-    pictureElement.querySelector('.picture__img').src = picture.url;
-    pictureElement.querySelector('.picture__likes').textContent = picture.likes;
-    pictureElement.querySelector('.picture__comments').textContent = picture.comments;
+  pictureElement.querySelector('.picture__img').src = picture.url;
+  pictureElement.querySelector('.picture__likes').textContent = picture.likes;
+  pictureElement.querySelector('.picture__comments').textContent = picture.comments;
   return pictureElement;
 }
 var picturesCont = document.querySelector('.pictures');
@@ -67,4 +67,3 @@ for (var i = 0; i < picturesList.length; i++) {
 }
 
 picturesCont.appendChild(fragment);
-
