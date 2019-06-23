@@ -44,7 +44,7 @@ function createArray() {
     picturesList[i] = {
       url: 'photos/' + photosArray[i] + '.jpg',
       likes: likesArray[i],
-      comments: commentsList[getRndInteger(0, commentsList.length)]
+      comments: getRndInteger(0, commentsList.length)
     };
   }
   return picturesList;
