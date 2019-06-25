@@ -14,7 +14,7 @@ var template = document.querySelector('#picture').content.querySelector('.pictur
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
-};
+}
 
 function createMokArray(quantity) {
   for (var i = 0; i < quantity; i++) {
@@ -25,7 +25,7 @@ function createMokArray(quantity) {
     };
   }
   return picturesList;
-};
+}
 
 function createPictures(picture) {
   var pictureElement = template.cloneNode(true);
@@ -33,7 +33,7 @@ function createPictures(picture) {
   pictureElement.querySelector('.picture__likes').textContent = picture.likes;
   pictureElement.querySelector('.picture__comments').textContent = picture.comments;
   return pictureElement;
-};
+}
 
 function createFragments() {
   var picturesContainer = document.querySelector('.pictures');
@@ -42,7 +42,8 @@ function createFragments() {
     fragment.appendChild(createPictures(picturesList[i]));
   }
   picturesContainer.appendChild(fragment);
-};
+}
 
 createMokArray(PICTURES_LENGTH);
 createFragments();
+
