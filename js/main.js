@@ -1,6 +1,8 @@
 'use strict';
 
 var PICTURES_LENGTH = 25;
+var MIN_LIKE = 15;
+var MAX_LIKE = 200;
 var picturesList = [];
 var commentsList = [
   'Всё отлично!',
@@ -16,11 +18,15 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function getRndElement(array) {
+  return array[Math.floor(Math.random() * (array.length - 0))];
+}
+
 function createMokArray(quantity) {
   for (var i = 0; i < quantity; i++) {
     picturesList[i] = {
       url: 'photos/' + getRndInteger(1, 25) + '.jpg',
-      likes: getRndInteger(15, 200),
+      likes: getRndInteger(MIN_LIKE, MAX_LIKE),
       comments: commentsList
     };
   }
@@ -31,7 +37,7 @@ function createPictures(picture) {
   var pictureElement = template.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = picture.url;
   pictureElement.querySelector('.picture__likes').textContent = picture.likes;
-  pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
+  pictureElement.querySelector('.picture__comments').textContent = getRndInteger(0, picture.comments.length);
   return pictureElement;
 }
 
@@ -46,4 +52,3 @@ function createFragments() {
 
 createMokArray(PICTURES_LENGTH);
 createFragments();
-
