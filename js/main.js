@@ -21,7 +21,7 @@ function createMokArray(quantity) {
     picturesList[i] = {
       url: 'photos/' + getRndInteger(1, 25) + '.jpg',
       likes: getRndInteger(15, 200),
-      comments: getRndInteger(0, commentsList.length)
+      comments: commentsList
     };
   }
   return picturesList;
@@ -31,7 +31,7 @@ function createPictures(picture) {
   var pictureElement = template.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = picture.url;
   pictureElement.querySelector('.picture__likes').textContent = picture.likes;
-  pictureElement.querySelector('.picture__comments').textContent = picture.comments;
+  pictureElement.querySelector('.picture__comments').textContent = picture.comments.length;
   return pictureElement;
 }
 
