@@ -18,10 +18,6 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function getRndElement(array) {
-  return array[Math.floor(Math.random() * (array.length - 0))];
-}
-
 function createMokArray(quantity) {
   for (var i = 0; i < quantity; i++) {
     picturesList[i] = {
