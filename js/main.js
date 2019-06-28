@@ -18,12 +18,16 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function getRndElement(array) {
+  return array[Math.floor(Math.random() * (array.length - 0))];
+}
+
 function createMokArray(quantity) {
   for (var i = 0; i < quantity; i++) {
     picturesList[i] = {
       url: 'photos/' + getRndInteger(1, 25) + '.jpg',
       likes: getRndInteger(MIN_LIKE, MAX_LIKE),
-      comments: commentsList
+      comments: getRndInteger(0, commentsList.length)
     };
   }
   return picturesList;
@@ -33,7 +37,7 @@ function createPictures(picture) {
   var pictureElement = template.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = picture.url;
   pictureElement.querySelector('.picture__likes').textContent = picture.likes;
-  pictureElement.querySelector('.picture__comments').textContent = getRndInteger(0, picture.comments.length);
+  pictureElement.querySelector('.picture__comments').textContent = picture.comments;
   return pictureElement;
 }
 
@@ -48,3 +52,4 @@ function createFragments() {
 
 createMokArray(PICTURES_LENGTH);
 createFragments();
+
