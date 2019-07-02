@@ -3,7 +3,7 @@
 var PICTURES_LENGTH = 25;
 var MIN_LIKE = 15;
 var MAX_LIKE = 200;
-var picturesList = {};
+var picturesData = {};
 var commentsList = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -34,7 +34,7 @@ function getRndElement(array) {
 }
 
 function createMockObject(names, comments) {
-  picturesList = {
+  picturesData = {
     url: 'photos/' + getRndInteger(1, 25) + '.jpg',
     likes: getRndInteger(MIN_LIKE, MAX_LIKE),
     comment: []
@@ -48,14 +48,14 @@ function createMockObject(names, comments) {
       message: getRndElement(comments),
       name: getRndElement(names)
     };
-    picturesList.comment.push(commentData);
+    picturesData.comment.push(commentData);
 
   }
 
-  return picturesList;
+  return picturesData;
 }
 
-function createMokArray(picturesList, quantity) {
+function createMokArray(picturesData, quantity) {
   for (var j = 0; j < quantity; j++) {
     pictureMokArray[j] = createMockObject(namesList, commentsList, PICTURES_LENGTH);
   }
@@ -79,6 +79,6 @@ function createFragments() {
   picturesContainer.appendChild(fragment);
 }
 
-createMokArray(picturesList, PICTURES_LENGTH)
+createMokArray(picturesData, PICTURES_LENGTH)
 createFragments();
 
