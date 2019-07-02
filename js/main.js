@@ -38,7 +38,7 @@ function createMockObject(names, comments) {
     url: 'photos/' + getRndInteger(1, 25) + '.jpg',
     likes: getRndInteger(MIN_LIKE, MAX_LIKE),
     comment: []
-  }
+  };
 
   var commentsCount = getRndInteger(0, 3);
 
@@ -55,7 +55,7 @@ function createMockObject(names, comments) {
   return picturesData;
 }
 
-function createMokArray(picturesData, quantity) {
+function createMokArray(quantity) {
   for (var j = 0; j < quantity; j++) {
     pictureMokArray[j] = createMockObject(namesList, commentsList, PICTURES_LENGTH);
   }
@@ -79,6 +79,6 @@ function createFragments() {
   picturesContainer.appendChild(fragment);
 }
 
-createMokArray(picturesData, PICTURES_LENGTH)
+createMokArray(PICTURES_LENGTH);
 createFragments();
 
