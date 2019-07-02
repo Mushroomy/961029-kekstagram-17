@@ -3,7 +3,7 @@
 var PICTURES_LENGTH = 25;
 var MIN_LIKE = 15;
 var MAX_LIKE = 200;
-var picturesList = [];
+var picturesList = {};
 var commentsList = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -12,40 +12,73 @@ var commentsList = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
+var namesList = [
+  'Ваня',
+  'Коля',
+  'Маша',
+  'Олег',
+  'Евгений',
+  'Юлия'
+];
+var MIN_AVATAR = 1;
+var MAX_AVATAR = 5;
+var pictureMokArray = [];
 var template = document.querySelector('#picture').content.querySelector('.picture');
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function createMokArray(quantity) {
-  for (var i = 0; i < quantity; i++) {
-    picturesList[i] = {
-      url: 'photos/' + getRndInteger(1, 25) + '.jpg',
-      likes: getRndInteger(MIN_LIKE, MAX_LIKE),
-      comments: getRndInteger(0, commentsList.length)
-    };
+function getRndElement(array) {
+  return array[Math.floor(Math.random() * (array.length - 0))];
+}
+
+function createMockObject(names, comments) {
+  picturesList = {
+    url: 'photos/' + getRndInteger(1, 25) + '.jpg',
+    likes: getRndInteger(MIN_LIKE, MAX_LIKE),
+    comment: []
   }
+
+  var commentsCount = getRndInteger(0, 3);
+
+  for (var i = 0; i < commentsCount; i++) {
+    var commentData = {
+      avatar: 'img/avatar-' + getRndInteger(MIN_AVATAR, MAX_AVATAR) + '.svg',
+      message: getRndElement(comments),
+      name: getRndElement(names)
+    };
+    picturesList.comment.push(commentData);
+
+  }
+
   return picturesList;
+}
+
+function createMokArray(picturesList, quantity) {
+  for (var j = 0; j < quantity; j++) {
+    pictureMokArray[j] = createMockObject(namesList, commentsList, PICTURES_LENGTH);
+  }
+  return pictureMokArray;
 }
 
 function createPictures(picture) {
   var pictureElement = template.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = picture.url;
   pictureElement.querySelector('.picture__likes').textContent = picture.likes;
-  pictureElement.querySelector('.picture__comments').textContent = picture.comments;
+  pictureElement.querySelector('.picture__comments').textContent = picture.comment.length;
   return pictureElement;
 }
 
 function createFragments() {
   var picturesContainer = document.querySelector('.pictures');
   var fragment = document.createDocumentFragment();
-  for (var i = 0; i < picturesList.length; i++) {
-    fragment.appendChild(createPictures(picturesList[i]));
+  for (var i = 0; i < pictureMokArray.length; i++) {
+    fragment.appendChild(createPictures(pictureMokArray[i]));
   }
   picturesContainer.appendChild(fragment);
 }
 
-createMokArray(PICTURES_LENGTH);
+createMokArray(picturesList, PICTURES_LENGTH)
 createFragments();
 
