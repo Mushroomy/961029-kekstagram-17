@@ -1,6 +1,6 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url]
 
-* Студент: [Неопознанный енот](https://up.htmlacademy.ru/javascript/17/user/961029).
+* Студент: [Александр Казанцев](https://up.htmlacademy.ru/javascript/17/user/961029).
 * Наставник: [Сергей Рожков](https://up.htmlacademy.ru/javascript/17/user/1069033).
 
 ---
