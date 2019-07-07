@@ -132,6 +132,7 @@ function openEditForm() {
   zoomChange();
   effectChange(DEFAULT_EFFECT_PERCENT/*, effectName*/);
   sliderPin.style.left = (sliderLine.offsetWidth * DEFAULT_EFFECT_PERCENT / 100) + 'px';
+  checkTextareaFocus();
 }
 
 function closeEditForm() {
@@ -195,6 +196,16 @@ closeFormBtn.addEventListener('click', function () {
   closeEditForm();
   editForm.value = "";
 });
+
+function checkTextareaFocus() {
+  commentTextarea.addEventListener('focusin', function () {
+    document.removeEventListener('keydown', onPopupEscPress);
+  }, true);
+
+  commentTextarea.addEventListener('focusout', function () {
+    document.addEventListener('keydown', onPopupEscPress);
+  }, true);
+}
 
 zoomPlusBtn.addEventListener('click', function (evt) {
   evt.preventDefault();
