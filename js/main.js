@@ -82,6 +82,7 @@ function createFragments() {
 createMokArray(PICTURES_LENGTH);
 createFragments();
 
+
 /* module4-task1 */
 
 var uploadInput = document.querySelector('#upload-file');
