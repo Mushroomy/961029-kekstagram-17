@@ -98,10 +98,10 @@ var DEFAULT_EFFECT_PERCENT = 100;
 var radioBtns = editForm.querySelectorAll('.effects__radio');
 
 var mainImg = editForm.querySelector('.img-upload__preview img');
-var effectBtns = editForm.querySelector('.effects__list .effects__item');
+//var effectBtns = editForm.querySelector('.effects__list .effects__item');
 
 var ESC_KEYCODE = 27;
-var ENTER_KEYCODE = 13;
+//var ENTER_KEYCODE = 13;
 
 var zoomPlusBtn = editForm.querySelector('.scale__control--bigger');
 var zoomMinusBtn = editForm.querySelector('.scale__control--smaller');
@@ -114,16 +114,16 @@ var Zoom = {
   'min': 25,
   'max': 100,
   'default': 100
-}
+};
 
-var Filter = {
-  'chrome': 'filter: grayscale(0..1)',
-  'sepia': 'filter: sepia(0..1)',
-  'marvin': 'filter: invert(0..100%)',
-  'phobos': 'filter: blur(0..1)',
-  'heat': 'filter: brightness(1..3)',
-}
-/* min max значения */
+//var Filter = {
+//  'chrome': 'filter: grayscale(0..1)',
+//  'sepia': 'filter: sepia(0..1)',
+//  'marvin': 'filter: invert(0..100%)',
+//  'phobos': 'filter: blur(0..1)',
+//  'heat': 'filter: brightness(1..3)',
+//};
+/*  min max значения  */
 
 function openEditForm() {
   editForm.classList.remove('hidden');
@@ -181,7 +181,7 @@ function calculatePercent(x, number) {
 radioBtns.forEach(function (e) {
   e.addEventListener('click', function () {
 
-    var effectName = this.value;
+    var effectName = e.value;
     mainImg.classList = '';
     mainImg.classList.add('effects__preview--' + effectName + '');
 
@@ -194,7 +194,7 @@ uploadInput.addEventListener('change', function () {
 
 closeFormBtn.addEventListener('click', function () {
   closeEditForm();
-  editForm.value = "";
+  editForm.value = '';
 });
 
 function checkTextareaFocus() {
@@ -217,8 +217,6 @@ zoomMinusBtn.addEventListener('click', function (evt) {
   zoomMinus();
 });
 
-
-
 sliderPin.addEventListener('mousedown', function (evt) {
   evt.preventDefault();
   var SLIDER_MIN = 0;
@@ -235,7 +233,6 @@ sliderPin.addEventListener('mousedown', function (evt) {
     };
     var sliderCoords = sliderPin.offsetLeft - shift.x;
     
-    
     startCoords = {
       x: moveEvt.clientX
     };
@@ -249,7 +246,7 @@ sliderPin.addEventListener('mousedown', function (evt) {
     }
     
     var effectPercent = calculatePercent(sliderCoords, SLIDER_MAX);
-    effectChange(effectPercent/*, effectName*/);
+    effectChange(effectPercent/* , effectName*/);
   }
   
   function onMouseUp (upEvt) {
@@ -261,7 +258,5 @@ sliderPin.addEventListener('mousedown', function (evt) {
   sliderContainer.addEventListener('mousemove', onMouseMove);
   sliderContainer.addEventListener('mouseup', onMouseUp);
 });
-
-
 
 /* /module4-task1 */
