@@ -95,7 +95,6 @@ var sliderContainer = editForm.querySelector('.img-upload__effect-level');
 var sliderInput = editForm.querySelector('.effect-level__value');
 var DEFAULT_EFFECT_PERCENT = 100;
 
-
 var radioBtns = editForm.querySelectorAll('.effects__radio');
 
 var mainImg = editForm.querySelector('.img-upload__preview img');
@@ -107,6 +106,8 @@ var ENTER_KEYCODE = 13;
 var zoomPlusBtn = editForm.querySelector('.scale__control--bigger');
 var zoomMinusBtn = editForm.querySelector('.scale__control--smaller');
 var zoomScale = editForm.querySelector('.scale__control--value');
+
+var commentTextarea = editForm.querySelector('.text__description');
 
 var Zoom = {
   'step': 25,
